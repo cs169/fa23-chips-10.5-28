@@ -6,6 +6,8 @@ on:
 
 jobs:
   # TODO: Environment variables?
+  env:
+      RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
   build:
     runs-on: '${{ matrix.os }}'
     strategy:
@@ -13,8 +15,6 @@ jobs:
         os:
           - ubuntu-22.04
     steps:
-      env:
-        RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
       - name: Cache multiple paths
         uses: actions/cache@v2
         with:
