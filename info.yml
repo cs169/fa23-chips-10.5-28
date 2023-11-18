@@ -1,0 +1,24 @@
+project:
+  name: 'CS169-fa23-28'
+  owner: 'fa23'
+  teamId: '28'
+  identities: {}
+  notifications:
+    email: 'blakecavedo@berkeley.edu'
+  members:
+    member1:
+      name: 'Blake'
+      surname: 'Cavedo' 
+      githubUsername: 'blakecavedo'
+    member2:
+      name: 'William'
+      surname: 'Fang' 
+      githubUsername: 'willfang8'
+    member3:
+      name: 'Mario'
+      surname: 'Zuniga' 
+      githubUsername: 'zunigamario'
+    member4:
+      name: 'Jazem'
+      surname: 'Siddiqui' 
+      githubUsername: 'jazems'
