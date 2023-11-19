@@ -27,7 +27,6 @@ class Representative < ApplicationRecord
 			# 	photo_url = official.photoUrl 
 			# end
 
-
       # check if it already exists
       rep = Representative.find_by(name: official.name, ocdid: ocdid_temp,
         title: title_temp)
@@ -37,6 +36,7 @@ class Representative < ApplicationRecord
       if rep.nil?
         rep = Representative.create!({ name: official.name, ocdid: ocdid_temp,
             title: title_temp, address: "yeah", photo: photo_url , party: official.party })
+
       end
 
       reps.push(rep)

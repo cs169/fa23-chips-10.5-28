@@ -14,5 +14,3 @@ Then /we should not see two (.*) in database/ do |name|
   expect(reps.length).to eq 1
 end
 
-
-### ruby code where we create the test ruby code
