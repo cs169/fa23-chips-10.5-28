@@ -18,8 +18,7 @@ class Representative < ApplicationRecord
       end
 
       # check if it already exists
-      rep = Representative.find_by(name: official.name, ocdid: ocdid_temp,
-        title: title_temp)
+      rep = Representative.find_by(name: official.name)
 
       if rep.nil?
         rep = Representative.create!({ name: official.name, ocdid: ocdid_temp,
