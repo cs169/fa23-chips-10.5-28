@@ -1,0 +1,137 @@
+[33mcommit 9db80c1c1dc8abbd05b4ac7698844919eb14f462[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 2b11d5f 8d0a6d8
+Author: William Fang <willfang8@berkeley.edu>
+Date:   Sun Nov 19 12:16:40 2023 -0800
+
+    Merge pull request #7 from cs169/refactoring_legacy_code
+    
+    Future proofed tests
+
+[33mcommit 8d0a6d83f9b846f7e4833b49adfa04306346f06c[m[33m ([m[1;31morigin/refactoring_legacy_code[m[33m)[m
+Author: William Fang <willfang8@berkeley.edu>
+Date:   Sun Nov 19 20:14:01 2023 +0000
+
+    Future proofed tests
+
+[33mcommit 2b11d5fe28db13f28eb42a0b137a3dd09c2f99bc[m
+Merge: d8061ed c354d7d
+Author: zunigamario <74891797+zunigamario@users.noreply.github.com>
+Date:   Sat Nov 18 20:07:56 2023 -0800
+
+    Merge pull request #3 from cs169/refactoring_legacy_code
+    
+    done with task 1.1
+
+[33mcommit c354d7da83e4651b167502e0e2a765be20a30fab[m
+Author: William Fang <willfang8@berkeley.edu>
+Date:   Sun Nov 19 03:36:22 2023 +0000
+
+    Cleaned up some files
+
+[33mcommit 6ff21450957da8c3f3f80df4db4d4495cc87bd26[m
+Author: Blake Cavedo <blakecavedo@berkeley.edu>
+Date:   Sun Nov 19 03:24:09 2023 +0000
+
+    done with task 1.1
+
+[33mcommit d8061ed1f9fad95e15dcf5d7f28d07784ed043da[m
+Author: Blake Cavedo <blakecavedo@berkeley.edu>
+Date:   Sat Nov 18 20:18:31 2023 +0000
+
+    added badge for bluejay to README
+
+[33mcommit eed69466c157267ce1ed2690975431717e69743a[m
+Author: Blake Cavedo <blakecavedo@berkeley.edu>
+Date:   Sat Nov 18 20:16:15 2023 +0000
+
+    info.yml added
+
+[33mcommit 6eb396b68252167d400cafd872c34a6e4dbb5597[m
+Author: Blake Cavedo <blakecavedo@berkeley.edu>
+Date:   Sat Nov 18 20:09:18 2023 +0000
+
+    added CI info to README
+
+[33mcommit f97727b8f0f25b0257e1963a4b915884abf293f0[m
+Author: Blake Cavedo <blakecavedo@berkeley.edu>
+Date:   Sat Nov 18 20:06:42 2023 +0000
+
+    .yml edit for name
+
+[33mcommit abdd2221d103d48889031543da307ff6cb5e0c6f[m
+Author: Blake Cavedo <blakecavedo@berkeley.edu>
+Date:   Sat Nov 18 20:03:22 2023 +0000
+
+    w/o with
+
+[33mcommit 9bf2d4f6a6727ba7d6875337abc0ef22bd8ebb48[m
+Author: Blake Cavedo <blakecavedo@berkeley.edu>
+Date:   Sat Nov 18 20:02:05 2023 +0000
+
+    change in .yml
+
+[33mcommit d9ee4029eb330d81c7455dff440fbf9dce3e4779[m
+Author: Blake Cavedo <blakecavedo@berkeley.edu>
+Date:   Sat Nov 18 19:59:06 2023 +0000
+
+    switched env in .yml
+
+[33mcommit 015524f85951fea8fdfff1ac83b2f86ccae5b121[m
+Author: Blake Cavedo <blakecavedo@berkeley.edu>
+Date:   Sat Nov 18 19:57:21 2023 +0000
+
+    .yml file edit
+
+[33mcommit d0ac0997e7dbd61e0063481b9436327462084fb1[m
+Merge: 6e885d3 288ccd9
+Author: Blake Cavedo <blakecavedo@berkeley.edu>
+Date:   Sat Nov 18 17:59:22 2023 +0000
+
+    Merge branch 'master' of github.com:cs169/fa23-chips-10.5-28
+
+[33mcommit 288ccd901ccd7f15f68b828f978469558a43fc33[m
+Author: William Fang <willfang8@berkeley.edu>
+Date:   Fri Nov 17 23:41:43 2023 +0000
+
+    Removed production and development tags from credentials
+
+[33mcommit 6e885d38e0dbafbdb71dc7889bf7a80d7ba6b616[m
+Merge: 834ce6c 86c4484
+Author: Blake Cavedo <blakecavedo@berkeley.edu>
+Date:   Fri Nov 17 23:22:37 2023 +0000
+
+    Merge branch 'master' of github.com:cs169/fa23-chips-10.5-28
+    merging for IC
+
+[33mcommit 834ce6c5656e323dce84291b7cae49745e0040cf[m
+Author: Blake Cavedo <blakecavedo@berkeley.edu>
+Date:   Fri Nov 17 23:22:35 2023 +0000
+
+    beforep pulling for CI
+
+[33mcommit 86c448426c28a9ce85f45d0a9235c8ad8fc5c976[m
+Author: William Fang <willfang8@berkeley.edu>
+Date:   Fri Nov 17 23:12:42 2023 +0000
+
+    Credentials indo
+
+[33mcommit 2285159f5594a061a37f837d01f21561d5099ed8[m
+Merge: 860a54c 24311c9
+Author: William Fang <willfang8@berkeley.edu>
+Date:   Fri Nov 17 14:33:36 2023 -0800
+
+    Merge pull request #1 from cs169/willfang8
+    
+    Credentials setup
+
+[33mcommit 24311c9492ffea2204e685ab41c9570c07b8bdfb[m[33m ([m[1;31morigin/willfang8[m[33m)[m
+Author: William Fang <willfang8@berkeley.edu>
+Date:   Fri Nov 17 22:30:51 2023 +0000
+
+    Credentials setup
+
+[33mcommit 860a54c1f9abf972aae492cc29c736113d264cf5[m[33m ([m[1;31morigin/zunigamario[m[33m)[m
+Author: Timothy J. Aveni <tja@berkeley.edu>
+Date:   Thu Nov 9 10:58:16 2023 -0800
+
+    Initial commit
