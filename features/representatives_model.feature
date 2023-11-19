@@ -6,3 +6,7 @@ Scenario: Duplicate search should not show up in the database
   Given that Joseph Biden in database
   When I search California 
   Then we should not see two Joseph Biden in database
+
+
+
+Feature: Display a representative's profile page
