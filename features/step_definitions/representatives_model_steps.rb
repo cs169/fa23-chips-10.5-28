@@ -9,7 +9,7 @@ When /I search (.*)/ do |location|
   click_button('Search')
 end
 
-Then /we should not see two (.*) in database/ do |name|
+Then /we should see ([0-9]+) (.*) in database/ do |count, name|
   reps = Representative.where(name: name)
-  expect(reps.length).to eq 1
+  expect(reps.length).to eq count.to_i
 end

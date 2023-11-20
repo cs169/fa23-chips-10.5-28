@@ -5,4 +5,11 @@ Feature: Civic_api_to_representative_params refactoring
 Scenario: Duplicate search should not show up in the database
   Given that Joseph R. Biden in database
   When I search California 
-  Then we should not see two Joseph R. Biden in database
+  Then we should see 1 Joseph R. Biden in database
+Scenario: New candidates should be added to the database
+  When I search California 
+  Then we should see 1 Joseph R. Biden in database
+Scenario: Multiple searches should only add candidate once
+  When I search California 
+  When I search California 
+  Then we should see 1 Joseph R. Biden in database
