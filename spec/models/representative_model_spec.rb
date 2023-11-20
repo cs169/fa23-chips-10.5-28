@@ -42,6 +42,7 @@ describe Representative do
 
 			expect(result.size).to eq(officials_array.size)
 			#return object type -> NON-NULL array of representative objects
+			expect(result).to_not be_truthy
 		end
 	end
 	describe "helpers" do
