@@ -21,9 +21,26 @@ describe Representative do
 		it "converts officials returned by civic api to Representative objects" do
 			#TODO: create mock rep_info object and stub the .officials method 
 			# to return array of mock officials objects
+			id = 0
+			officials_array = []
+			offices_array = []
+			(1..4).each do |n|
+				official_to_append = double("official " + n.to_s)
+				officials_array.append(to_append)
+
+				office_to_append = double("office " + n.to_s)
+				offices_array.append(office_to_append)
+			end
+
+			rep_info_double = double("info")
+			allow(rep_info_double).to receive(:officials).and_return(officials_array)
+			allow(rep_info_double).to receive(:offices).and_return(offices_array)
 
 			#ASSERT:
 			#array size (# of officials == # of representatives)
+			result = Representative.civic_api_to_representative_params(rep_info_double)
+
+			expect(result.size).to eq(officials_array.size)
 			#return object type -> NON-NULL array of representative objects
 		end
 	end
