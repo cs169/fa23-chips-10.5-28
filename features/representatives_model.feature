@@ -13,3 +13,5 @@ Scenario: Multiple searches should only add candidate once
   When I search California 
   When I search California 
   Then we should see 1 Joseph R. Biden in database
+Scenario: Database is empty without any prior actions
+  Then we should see 0 Joseph R. Biden in database
