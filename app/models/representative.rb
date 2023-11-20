@@ -10,8 +10,6 @@ class Representative < ApplicationRecord
       ocdid_temp = ''
       title_temp = ''
 
-
-
       rep_info.offices.each do |office|
         if office.official_indices.include? index
           title_temp = office.name
@@ -19,24 +17,16 @@ class Representative < ApplicationRecord
         end
       end
 
-      # address = self.concatenate_addr(official.address)
-
-			photo_url = 'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'
+      address = official.address ? self.concatenate_addr(official.address) : ""
+			photo_url = official.photo_url ? official.photo_url : ""
 			
-			# if official.has_key?("photoUrl")
-			# 	photo_url = official.photoUrl 
-			# end
-
       # check if it already exists
       rep = Representative.find_by(name: official.name, ocdid: ocdid_temp,
         title: title_temp)
 
-			puts official
-
       if rep.nil?
         rep = Representative.create!({ name: official.name, ocdid: ocdid_temp,
-            title: title_temp, address: "yeah", photo: photo_url , party: official.party })
-
+            title: title_temp, address: address, photo: photo_url , party: official.party })
       end
 
       reps.push(rep)
@@ -58,7 +48,6 @@ class Representative < ApplicationRecord
 
     res += addr[0].city + ", "
     res += addr[0].state + " " + addr[0].zip
-
     res
   end 
 
