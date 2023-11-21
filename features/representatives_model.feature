@@ -8,4 +8,3 @@ Feature: Display a representative's profile page
 #  When I follow "Joseph R. Biden"
 #  Then I should see "Democratic Party"
 #  Then I should see "1600 Pennsylvania Avenue Northwest, Washington, DC 20500"
-
