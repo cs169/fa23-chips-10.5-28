@@ -1,6 +1,6 @@
 Feature: Display a representative's profile page
   As a researcher,
-  I want to be able to read information about Joseph Biden
+  I want to be able to search for a state's representatives and access their information
   so that I can write a biography 
 Scenario:
   Given that Joseph Biden in database
