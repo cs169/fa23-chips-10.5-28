@@ -26,10 +26,7 @@ class Representative < ApplicationRecord
       end
 
       reps.push(rep)
-
     end
-
     reps
   end
-
 end

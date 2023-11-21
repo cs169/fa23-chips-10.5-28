@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 Given /that (.*) in database/ do |name|
   Representative.create!({ name: name, ocdid: 'ocd-division/country:us',
-    title: "President of the United States" })
+    title: 'President of the United States' })
 end
 
 When /I search (.*)/ do |location|
   visit '/representatives'
-  fill_in('address', :with => location)
+  fill_in('address', with: location)
   click_button('Search')
 end
 
