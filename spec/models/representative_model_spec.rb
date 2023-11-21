@@ -26,9 +26,16 @@ describe Representative do
 			offices_array = []
 			(1..4).each do |n|
 				official_to_append = double("official " + n.to_s)
-				officials_array.append(to_append)
+				allow(official_to_append).to receive(:address).and_return(double("address"))
+				allow(official_to_append).to receive(:photo_url).and_return(double("photo"))
+				allow(official_to_append).to receive(:name).and_return(double("name"))
+				officials_array.append(official_to_append)
 
 				office_to_append = double("office " + n.to_s)
+				allow(office_to_append).to receive(:official_indices).and_return([n])
+				allow(office_to_append).to receive(:name).and_return(double("name"))
+				allow(office_to_append).to receive(:division_id).and_return("division " + n.to_s)
+
 				offices_array.append(office_to_append)
 			end
 
@@ -38,11 +45,13 @@ describe Representative do
 
 			#ASSERT:
 			#array size (# of officials == # of representatives)
+			allow(Representative).to receive(:concatenate_addr).and_return("123 Street St, City, State, Zip")
+			allow(Representative).to receive(:find_by).and_return(double("rep"))
 			result = Representative.civic_api_to_representative_params(rep_info_double)
 
 			expect(result.size).to eq(officials_array.size)
 			#return object type -> NON-NULL array of representative objects
-			expect(result).to_not be_truthy
+			expect(result).to be_truthy
 		end
 	end
 	describe "helpers" do
