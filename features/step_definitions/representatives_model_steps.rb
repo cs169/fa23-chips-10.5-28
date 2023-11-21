@@ -9,6 +9,8 @@ When /I search (.*)/ do |location|
   click_button('Search')
 end
 
+
+
 Then /we should not see two (.*) in database/ do |name|
   reps = Representative.where(name: name)
   expect(reps.length).to eq 1
