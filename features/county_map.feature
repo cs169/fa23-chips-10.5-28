@@ -11,7 +11,7 @@ Feature: County Map Functionality For Getting Representatives
     Given that I am on state FL on map
     When I click on Broward County
     Then I should see Marty Kiar, Gregory Tony, Joe Scott, Brenda D. Forman in the list of representatives
-  Scenario: Clicking on Broward County to get the representatives
+  Scenario: Clicking on Bedford County to get the representatives
     Given that I am on state VA on map
     When I click on Bedford County
     Then I should see Judy E. Reynolds, Kim Snow, Mike W. Miller, Tracy Patterson in the list of representatives
