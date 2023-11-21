@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row align-items-start my-5"> 
+    <div class="col-3">
+      <%= image_tag(!@representative.photo.empty? ? @representative.photo : @default_photo, style: "max-height: 225px; max-width: 180px;", class: "img-thumbnail") %>
+    </div>
+    
+    <div class="col-4">
+      <h1><%= @representative.name %></h1>
+      <h3 class="mb-3"><%= @representative.title %> </h3>
+      <p style=<%= @ocdid_state.nil? ? "display:none" : "display:block" %>>State: <%= @ocdid_state %></p>
+      <p>Political Affiliation:
+      <span style="color: <%= if @representative.party.include?("Democratic")
+          "blue"
+        elsif @representative.party.include?("Republican")
+          "red"
+        end%>">
+        <%= @representative.party %>
+        </span>
+        </p>
+    </div>
+
+    <div class="col-3 .offset-md-1">
+      <h3>Address:</h3>
+      <p><%= @representative.address.empty? ? "No Address Found" : @representative.address %></p>
+    </div>
+  </div>
+  <div>
+    <%= link_to 'Back', :back, class: "btn btn-primary"%>
+  </div>
+</div>
