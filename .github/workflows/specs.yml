@@ -20,8 +20,8 @@ jobs:
           #   RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         
       - name: Cache multiple paths
-        env: # Or as an environment variable
-          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+#        env: # Or as an environment variable
+#          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         uses: actions/cache@v2
         with:
           path: |-
