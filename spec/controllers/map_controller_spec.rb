@@ -7,4 +7,12 @@ describe MapController do
 			get :state, params: {:state_symbol => 'CA'}
 		end 
 	end
+	describe 'Improper search' do
+		it 'tries to call a nonexisitent state' do
+			expect(State).to receive(:find_by).and_return(nil)
+			# expect_any_instance_of(MapController).to receive(:handle_state_not_found)
+			get :state, params: {:state_symbol => 'AA'}
+		end
+	end
+
 end
