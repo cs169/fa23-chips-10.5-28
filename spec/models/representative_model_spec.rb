@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'google/apis/civicinfo_v2'
 
 # if RUBY_VERSION>='2.6.0'
 #   if Rails.version < '5'
@@ -58,14 +59,9 @@ describe Representative do
 
   describe 'helpers' do
     it 'accurately concatenates the address' do
-      addr_double = double('addr')
-
-      allow(addr_double).to receive(:line1).and_return('1600 Pennsylvania Avenue Northwest')
-      allow(addr_double).to receive(:line2).and_return(nil)
-      allow(addr_double).to receive(:line3).and_return(nil)
-      allow(addr_double).to receive(:city).and_return('Washington')
-      allow(addr_double).to receive(:state).and_return('DC')
-      allow(addr_double).to receive(:zip).and_return('20500')
+      addr_double = instance_double(Google::Apis::CivicinfoV2::SimpleAddressType,
+                                    { line1: '1600 Pennsylvania Avenue Northwest', line2: nil, line3: nil,
+city: 'Washington', state: 'DC', zip: '20500' })
 
       var = described_class.concatenate_addr([addr_double])
 
