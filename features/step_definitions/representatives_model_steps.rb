@@ -2,7 +2,8 @@
 
 Given /that (.*) in database/ do |name|
   Representative.create!({ name: name, ocdid: 'ocd-division/country:us',
-    title: 'President of the United States' })
+    title: 'President of the United States', photo: '',
+    address: '1600 Pennsylvania Avenue Northwest', party: 'Democrat' })
 end
 
 When /I search (.*)/ do |location|
@@ -11,7 +12,11 @@ When /I search (.*)/ do |location|
   click_button('Search')
 end
 
-Then /we should not see two (.*) in database/ do |name|
+Given /that I am on "([^"]*)"$/ do |route|
+  visit route
+end
+
+Then /we should see ([0-9]+) (.*) in database/ do |count, name|
   reps = Representative.where(name: name)
-  expect(reps.length).to eq 1
+  expect(reps.length).to eq count.to_i
 end
