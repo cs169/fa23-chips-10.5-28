@@ -23,5 +23,11 @@ $(document).ready(() => {
 
         // We dont want to enable clicking in the county view.
         // stateMapUtils.setupEventHandlers(stateMap);
+        // .on('click', function(d) {
+        //     const countyFipsCode = d.properties.COUNTYFP;
+        //     const searchURL = `/search?county=${encodeURIComponent(countyName)}`;
+        //     window.location.href = searchURL;
+        // });
+
     });
 });
