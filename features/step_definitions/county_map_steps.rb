@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given /that I am on state (.*) on map/ do |state|
   # visit "/state/#{state}"
   # state = URI.encode(state.downcase)
@@ -25,13 +27,12 @@ When /I click on (.*)/ do |county|
   # puts county
   # binding.pry
   # click_button('Search')
-  county = URI.encode(county)
+  county = CGI.escape(county)
   visit "/search/#{county}"
   # all_elements = page.all('*')
   # all_elements.each do |element|
   #   puts element.text # You can print other properties as well (e.g., element['data-county-name'])
   # end
-
 end
 
 Then /I should see (.*) in the list of representatives/ do |rep_names_list|

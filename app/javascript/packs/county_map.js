@@ -28,6 +28,5 @@ $(document).ready(() => {
         //     const searchURL = `/search?county=${encodeURIComponent(countyName)}`;
         //     window.location.href = searchURL;
         // });
-
     });
 });
