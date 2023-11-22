@@ -7,7 +7,6 @@ class SearchController < ApplicationController
     address = params[:address]
     service = Google::Apis::CivicinfoV2::CivicInfoService.new
     service.key = Rails.application.credentials[:GOOGLE_API_KEY]
-    # result = service.representative_info_by_address(address: address)
     begin
       result = service.representative_info_by_address(address: address)
       if result.nil? || result.officials.empty?
