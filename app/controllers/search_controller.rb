@@ -7,9 +7,19 @@ class SearchController < ApplicationController
     address = params[:address]
     service = Google::Apis::CivicinfoV2::CivicInfoService.new
     service.key = Rails.application.credentials[:GOOGLE_API_KEY]
-    result = service.representative_info_by_address(address: address)
-    @representatives = Representative.civic_api_to_representative_params(result)
-
-    render 'representatives/search'
+    # result = service.representative_info_by_address(address: address)
+    begin
+      result = service.representative_info_by_address(address: address)
+      if result.nil? || result.officials.empty?
+        flash[:error] = 'No representatives found for the provided address.'
+        redirect_to '/representatives'
+      else
+        @representatives = Representative.civic_api_to_representative_params(result)
+        render '/representatives/search'
+      end
+    rescue Google::Apis::ClientError
+      flash[:error] = 'Invalid Search.'
+      redirect_to '/representatives'
+    end
   end
 end
