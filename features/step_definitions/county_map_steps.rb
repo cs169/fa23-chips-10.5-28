@@ -27,7 +27,7 @@ When /I click on (.*)/ do |county|
   # puts county
   # binding.pry
   # click_button('Search')
-  county = CGI.escape(county)
+  county = URI::Parser.new.escape(county)
   visit "/search/#{county}"
   # all_elements = page.all('*')
   # all_elements.each do |element|
