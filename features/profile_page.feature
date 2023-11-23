@@ -7,8 +7,3 @@ Scenario:
   Given that I am on "representatives/1"
   Then I should see "Democrat"
   Then I should see "1600 Pennsylvania Avenue Northwest"
-#Scenario:
-#  Given that Joseph R. Biden in database
-#  When I search California 
-#  When I click on Joseph R. Biden
-#  Then we should see his address and photo
