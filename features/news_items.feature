@@ -2,7 +2,7 @@ Feature: Display news item info
 Given that I am a researcher,
 I would like to know the name of the article, a description of the article, etc.
 so that I can quickly understand what a newsarticle is about
-Scenario:Navigating to news article
+Scenario:Navigating to news article #
   Given that Gavin Newson in database
   And that Gavin Newson has a news article
   And that I am on "representatives/1/news_items"
