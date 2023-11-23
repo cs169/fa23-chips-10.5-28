@@ -58,4 +58,16 @@ RSpec.describe LoginController, type: :controller do
       expect(response).to redirect_to('/user/profile')
     end
   end
+
+	describe 'find or create user' do
+		it 'does not find a Google user, so it creates a new Google user' do 
+      @user_info = { 
+        'uid' => '0', 
+        'info' => { 'first_name' => 'Blake', 
+        'last_name' => 'Cavedo', 'email' => 'blakecavedo@berkeley.edu' },
+				'provider' => :google_oauth2 
+      }
+			expect { controller.send(:find_or_create_user, @user_info, :create_google_user) }.to change { User.count }.by(1)
+		end
+	end
 end
