@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# spec/models/state_spec.rb
-
 require 'rails_helper'
 
 RSpec.describe State, type: :model do
