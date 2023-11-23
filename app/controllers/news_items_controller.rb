@@ -8,7 +8,9 @@ class NewsItemsController < ApplicationController
     @news_items = @representative.news_items
   end
 
-  def show; end
+  def show
+    @rep_id = params[:representative_id]
+  end
 
   private
 
