@@ -70,4 +70,6 @@ RSpec.describe LoginController, type: :controller do
 			expect { controller.send(:find_or_create_user, @user_info, :create_google_user) }.to change { User.count }.by(1)
 		end
 	end
+
+
 end
