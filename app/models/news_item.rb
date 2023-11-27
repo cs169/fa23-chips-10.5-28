@@ -9,4 +9,14 @@ class NewsItem < ApplicationRecord
       representative_id: representative_id
     )
   end
+
+  def self.query_news_api (rep_name, issue)
+    #Rails.application.credentials[:NEWS_API_KEY]
+    uri = "https://newsapi.org/v2/everything?" +
+      "q=#{rep_name} AND #{issue}&" + 
+      "from=#{(Date.today - (30.days)).to_s}&" +
+      "sort_by=relevancy&" + 
+      "apiKey=#{Rails.application.credentials[:NEWS_API_KEY]}"
+    uri = URI.escape(uri)
+  end
 end
