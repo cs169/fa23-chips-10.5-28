@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
 Given /that I am logged in/ do
-  OmniAuth.config.test_mode = true
-
   OmniAuth.config.add_mock(:google_oauth2, {
-                             uid:  '12345',
+                             uid:  '1',
                              info: {
                                first_name: 'Joe',
                                last_name:  'Biden',
