@@ -23,13 +23,13 @@ class MyNewsItemsController < SessionController
     topic = @rep_name + ' ' + @issue
     service = News.new("165fc53b54244e7d97f7f2c9919767c4")
     found_news = service.get_everything(
-      q: "Joe Biden Immigration",
+      q: topic,
       # category: , 
       language: 'en',
       # country: 'us',
       from: '2017-12-01',
       to: '2023-11-20',
-      sortBy: 'popularity' ,
+      sortBy: 'popularity',
       page: 5
     
 
