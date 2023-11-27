@@ -13,10 +13,7 @@ class NewsItem < ApplicationRecord
   # Takes string for representative name and issue
   # Returns list of 5 articles, articles are hashes
   def self.query_news_api(rep_name, issue)
-    uri = 'https://newsapi.org/v2/everything?' \
-          "q=#{rep_name} AND #{issue}&" \
-          "from=#{Date.today - 30.days}&" \
-          'sort_by=relevancy&' \
+    uri = NewsItem.generate_query_uri(rep_name, issue) +
           "apiKey=#{Rails.application.credentials[:NEWS_API_KEY]}"
 
     uri = URI.escape(uri)
@@ -35,5 +32,12 @@ class NewsItem < ApplicationRecord
     end
 
     articles_list
+  end
+
+  def self.generate_query_uri(rep_name, issue)
+    'https://newsapi.org/v2/everything?' \
+      "q=#{rep_name} AND #{issue}&" \
+      "from=#{Date.today - 30.days}&" \
+      'sort_by=relevancy&'
   end
 end
