@@ -10,9 +10,14 @@ class MyNewsItemsController < SessionController
     @news_item = NewsItem.new
   end
 
-  def new_second
-    @rep_id = params[:representative_id]
-    @issue = params[:issue]
+  def search
+    # "news_item"=>{"representative_id"=>"3", "issue"=>"Gun Control"}
+    @representative = Representative.find(
+      params[:news_item][:representative_id]
+    )
+    @rep_name = @representative.name
+    @issue = params[:news_item][:issue]
+    # binding.pry
   end
 
   def edit; end

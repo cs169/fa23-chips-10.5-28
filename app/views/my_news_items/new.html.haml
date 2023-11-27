@@ -4,13 +4,7 @@
 
     .col-12.col-md-6.offset-md-3.col-xl-4.offset-xl-4
         = render 'form', news_item: @news_item,
-        form_url: representative_new_my_news_item_path(@representative),
+        form_url: representative_search_my_news_item_path(@representative),
         form_method: :post,
         representatives_list: @representatives_list,
         issues_list: @issues_list
-    .col-12.d-flex.justify-content-center.mt-3
-        .clearfix.mt-3.text-center
-            .float-right
-                = link_to representative_new_second_my_news_item_path(@representative), class: 'btn btn-info' do
-                    Search
-                    

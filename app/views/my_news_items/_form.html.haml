@@ -19,4 +19,7 @@
             = select :news_item, :issue, issues_list, { include_blank: true },
             class: 'form-control'
     .actions
-        = f.submit 'Save', class: 'btn btn-primary'
+        .col-12.d-flex.justify-content-center.mt-3
+            .clearfix.mt-3.text-center
+                .float-right
+                    = f.submit 'Search', class: 'btn btn-primary'
