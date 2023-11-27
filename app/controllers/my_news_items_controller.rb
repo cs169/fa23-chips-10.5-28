@@ -12,41 +12,6 @@ class MyNewsItemsController < SessionController
     @news_item = NewsItem.new
   end
 
-  def search
-    # "news_item"=>{"representative_id"=>"3", "issue"=>"Gun Control"}
-    @representative = Representative.find(
-      params[:news_item][:representative_id]
-    )
-    @rep_name = @representative.name
-    @issue = params[:news_item][:issue]
-    # service = News.new(Rails.application.credentials[:NEWS_API_KEY])
-    topic = @rep_name + ' ' + @issue
-    service = News.new("165fc53b54244e7d97f7f2c9919767c4")
-    found_news = service.get_everything(
-      q: topic,
-      # category: , 
-      language: 'en',
-      # country: 'us',
-      from: '2017-12-01',
-      to: '2023-11-20',
-      sortBy: 'popularity',
-      page: 5
-    
-
-    # puts found_news
-
-      # q: 'bitcoin',
-      # category: 'business',
-      # language: 'en',
-      # country: 'us'
-    )
-    # news = service.get_sources(country: 'us', language: 'en')
-    binding.pry
-  end
-
-  def search_result
-  end
-
   def edit; end
 
   def create
