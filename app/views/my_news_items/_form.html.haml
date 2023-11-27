@@ -12,12 +12,11 @@
         .col-sm-10
             = select :news_item, :representative_id, representatives_list, { include_blank: true },
             class: 'form-control'
-
     .form-group.row
         .col-sm-2
-            = f.label :news_item, 'Issue', class: 'col-form-label'
+            = label :news_item, :issue, 'Issue', class: 'col-form-label'
         .col-sm-10
-            = f.select :news_item, options_for_select(issues_map), { include_blank: true },
+            = select :news_item, :issue, issues_list, { include_blank: true },
             class: 'form-control'
     .actions
         = f.submit 'Save', class: 'btn btn-primary'
