@@ -2,7 +2,6 @@
 
 Given /that I am logged in/ do
   OmniAuth.config.test_mode = true
-  Capybara.default_host = 'http://example.com'
 
   OmniAuth.config.add_mock(:google_oauth2, {
                              uid:  '12345',
