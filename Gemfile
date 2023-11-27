@@ -43,6 +43,8 @@ gem 'rubyzip'
 
 gem 'date_validator'
 
+gem 'faraday', '1.8.0'
+
 group :development, :test do
   gem 'axe-core-cucumber'
   gem 'axe-core-rspec'

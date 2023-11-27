@@ -17,6 +17,10 @@ class NewsItem < ApplicationRecord
       "from=#{(Date.today - (30.days)).to_s}&" +
       "sort_by=relevancy&" + 
       "apiKey=#{Rails.application.credentials[:NEWS_API_KEY]}"
-    uri = URI.escape(uri)
+      
+      uri = URI.escape(uri)
+      response = Faraday.get(uri)
+      
+      #response.body
   end
 end
