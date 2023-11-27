@@ -7,6 +7,15 @@ class MyNewsItemsController < SessionController
 
   def new
     @news_item = NewsItem.new
+    @issues = ["Free Speech", "Immigration", "Terrorism", "Social Security and
+    Medicare", "Abortion", "Student Loans", "Gun Control", "Unemployment",
+    "Climate Change", "Homelessness", "Racism", "Tax Reform", "Net
+    Neutrality", "Religious Freedom", "Border Security", "Minimum Wage",
+    "Equal Pay"]
+    @issues_map = @issues.map { |issue| [issue, issue]}
+  end
+
+  def new_second
   end
 
   def edit; end
