@@ -30,7 +30,12 @@ class MyNewsItemsController < SessionController
       @articles[i] = article
     end
 
+    # @articles = []
     # @articles = NewsItem.query_news_api(@rep_name, @issue)
+    if @articles.length == 0
+      flash[:notice] = "No articles were found."
+      redirect_to representative_new_my_news_item_path(@representative)
+    end
 
     # binding.pry
   end
@@ -38,16 +43,19 @@ class MyNewsItemsController < SessionController
   def save
     article_id = params['article_id']
     selected_article = params['articles'][article_id]
+    rating = params['rating']
     news_item = NewsItem.create!(
       {
         representative: @representative,
         title:          selected_article['title'],
-        description:    selected_article['link'],
-        link:           selected_article['description']
+        description:    selected_article['description'],
+        link:           selected_article['link']
       }
     )
     news_item.save!
-    binding.pry
+    # binding.pry
+    flash[:notice] = "Article was successfully saved."
+    redirect_to representative_news_items_path(@representative.id)
   end
 
   def edit; end
