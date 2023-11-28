@@ -572,6 +572,10 @@ module SeedData
         [
             {
                 name:       'Gavin Newsom',
+                ocdid: 'state/CA',
+                photo: '',
+                party: 'Democratic',
+                address: '',
                 news_items: [
                     {
                         title:       'Newsom Orders Second Shutdown of Restaurants and Indoor Businesses amid COVID-19',
@@ -587,6 +591,10 @@ module SeedData
             },
             {
                 name:       'Alexander Ocasio Cortez',
+                ocdid: 'state/NY',
+                photo: '',
+                party: 'Democratic',
+                address: '',
                 news_items: [
                     {
                         title:       'What AOC and other House Dems want to do about Climate Change',
