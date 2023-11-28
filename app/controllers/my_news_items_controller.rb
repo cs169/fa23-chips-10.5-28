@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'news-api'
+
 class MyNewsItemsController < SessionController
   before_action :set_representative
   before_action :set_representatives_list
