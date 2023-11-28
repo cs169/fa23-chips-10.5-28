@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 # require 'news-api'
 
 class MyNewsItemsController < SessionController
