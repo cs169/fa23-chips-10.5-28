@@ -19,18 +19,18 @@ class MyNewsItemsController < SessionController
     )
     @rep_name = @representative.name
     @issue = params[:news_item][:issue]
+    params[:id] = @representative.id
     # stub it
     @articles = []
-    # 5.times do |i|
-    #   article = {}
-    #   article['title'] = "test_title#{i}"
-    #   article['link'] = "test_link#{i}"
-    #   article['text'] = "test_description#{i}"
-    #   @articles[i] = article
-    # end
+    5.times do |i|
+      article = {}
+      article['title'] = "test_title#{i}"
+      article['link'] = "test_link#{i}"
+      article['text'] = "test_description#{i}"
+      @articles[i] = article
+    end
 
-    @articles = NewsItem.query_news_api(@rep_name, @issue)
-    # news = service.get_sources(country: 'us', language: 'en')
+    # @articles = NewsItem.query_news_api(@rep_name, @issue)
 
     # binding.pry
   end
