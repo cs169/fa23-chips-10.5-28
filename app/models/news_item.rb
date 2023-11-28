@@ -22,7 +22,11 @@ class NewsItem < ApplicationRecord
     response_articles = JSON.parse(response.body)['articles']
     articles_list = []
 
-    5.times do |i|
+		num_items = [5, response_articles.length].min 
+
+		# puts num_items
+
+    num_items.times do |i|
       org_article = response_articles[i]
       article = {}
       article['title'] = org_article['title']
