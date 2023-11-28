@@ -20,7 +20,6 @@ class MyNewsItemsController < SessionController
     )
     @rep_name = @representative.name
     @issue = params[:news_item][:issue]
-    @ratings_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
     # stub it
     @articles = []
     5.times do |i|
@@ -38,7 +37,7 @@ class MyNewsItemsController < SessionController
   end
 
   def save
-
+    binding.pry
   end
 
   def edit; end
