@@ -36,6 +36,18 @@ class MyNewsItemsController < SessionController
   end
 
   def save
+    article_id = params['article_id']
+    selected_article = params['articles'][article_id]
+    news_item = NewsItem.create!(
+      {
+        representative: @representative,
+        title:          selected_article['title'],
+        description:    selected_article['link'],
+        link:           selected_article['description']
+      }
+    )
+    news_item.save!
+    binding.pry
   end
 
   def edit; end
