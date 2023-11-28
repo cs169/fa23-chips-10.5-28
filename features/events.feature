@@ -1,7 +1,7 @@
 Feature: Events list
   As a user of the site
-  I would like to see a list of all events avaliable
-  So that I makes plans to participate
+  I would like to see a list of all events available
+  So that I can make plans to participate
 Scenario: Events list features
   Given that there is an event "Marching band"
   And that I am on "events"
