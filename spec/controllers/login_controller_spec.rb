@@ -14,35 +14,35 @@ RSpec.describe LoginController, type: :controller do
   end
 
   describe 'creating a google user' do
-    before do 
-      @user_info = { 
-        'uid' => '0', 
-        'info' => { 'first_name' => 'Blake', 
-        'last_name' => 'Cavedo', 'email' => 'blakecavedo@berkeley.edu' } 
+    before do
+      @user_info = {
+        'uid'  => '0',
+        'info' => { 'first_name' => 'Blake',
+        'last_name' => 'Cavedo', 'email' => 'blakecavedo@berkeley.edu' }
       }
     end
 
     it 'creates a new user based on the info provided by google' do
-      expect { controller.send(:create_google_user, @user_info) }.to change { User.count }.by(1)
+      expect { controller.send(:create_google_user, @user_info) }.to change(User, :count).by(1)
     end
   end
 
   describe 'creating a github user' do
-    before do 
-      @user_info = { 
-        'uid' => '0', 
-        'info' => { 'first_name' => 'Blake', 
-        'last_name' => 'Cavedo', 'email' => 'blakecavedo@berkeley.edu' } 
+    before do
+      @user_info = {
+        'uid'  => '0',
+        'info' => { 'first_name' => 'Blake',
+        'last_name' => 'Cavedo', 'email' => 'blakecavedo@berkeley.edu' }
       }
     end
 
     it 'creates a new user based on the info provided by github' do
-      expect { controller.send(:create_github_user, @user_info) }.to change { User.count }.by(1)
+      expect { controller.send(:create_github_user, @user_info) }.to change(User, :count).by(1)
     end
   end
 
   describe 'user logging out' do
-    it 'sessions get cleared and root path is rendered' do 
+    it 'sessions get cleared and root path is rendered' do
       get :logout
       expect(session[:current_user_id]).to be_nil
       expect(response).to redirect_to('/')
@@ -59,17 +59,15 @@ RSpec.describe LoginController, type: :controller do
     end
   end
 
-	describe 'find or create user' do
-		it 'does not find a Google user, so it creates a new Google user' do 
-      @user_info = { 
-        'uid' => '0', 
-        'info' => { 'first_name' => 'Blake', 
+  describe 'find or create user' do
+    it 'does not find a Google user, so it creates a new Google user' do
+      @user_info = {
+        'uid'      => '0',
+        'info'     => { 'first_name' => 'Blake',
         'last_name' => 'Cavedo', 'email' => 'blakecavedo@berkeley.edu' },
-				'provider' => :google_oauth2 
+        'provider' => :google_oauth2
       }
-			expect { controller.send(:find_or_create_user, @user_info, :create_google_user) }.to change { User.count }.by(1)
-		end
-	end
-
-
+      expect { controller.send(:find_or_create_user, @user_info, :create_google_user) }.to change(User, :count).by(1)
+    end
+  end
 end
