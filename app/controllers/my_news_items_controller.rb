@@ -36,7 +36,6 @@ class MyNewsItemsController < SessionController
   end
 
   def save
-    binding.pry
   end
 
   def edit; end
