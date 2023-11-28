@@ -27,8 +27,8 @@ end
 When /I click the (.*) button/ do |button_name|
   find(:css, 'a.btn.btn-primary', text: button_name).click
   # pass the authentication
-  find(:css, 'button.btn.btn-lg.btn-google.btn-block.text-uppercase.bg-danger.text-white', 
-    text: 'Sign in with Google').click
+  find(:css, 'button.btn.btn-lg.btn-google.btn-block.text-uppercase.bg-danger.text-white',
+       text: 'Sign in with Google').click
   visit representative_new_my_news_item_path(@rep)
 end
 
