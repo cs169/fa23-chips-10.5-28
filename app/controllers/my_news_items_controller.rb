@@ -1,12 +1,43 @@
 # frozen_string_literal: true
 
+# require 'news-api'
+
 class MyNewsItemsController < SessionController
   before_action :set_representative
   before_action :set_representatives_list
+  before_action :set_issues_list
   before_action :set_news_item, only: %i[edit update destroy]
 
   def new
     @news_item = NewsItem.new
+  end
+
+  def search
+    # "news_item"=>{"representative_id"=>"3", "issue"=>"Gun Control"}
+    @representative = Representative.find(
+      params[:news_item][:representative_id]
+    )
+    @rep_name = @representative.name
+    @issue = params[:news_item][:issue]
+    @ratings_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+    # stub it
+    @articles = []
+    5.times do |i|
+      article = {}
+      article['title'] = "test_title#{i}"
+      article['link'] = "test_link#{i}"
+      article['text'] = "test_description#{i}"
+      @articles[i] = article
+    end
+
+    # articles = NewsItem.query_news_api(@rep_name, @issue)
+    # news = service.get_sources(country: 'us', language: 'en')
+
+    # binding.pry
+  end
+
+  def save
+
   end
 
   def edit; end
@@ -48,12 +79,20 @@ class MyNewsItemsController < SessionController
     @representatives_list = Representative.all.map { |r| [r.name, r.id] }
   end
 
+  def set_issues_list
+    @issues_list = ["Free Speech", "Immigration", "Terrorism", "Social Security and
+    Medicare", "Abortion", "Student Loans", "Gun Control", "Unemployment",
+    "Climate Change", "Homelessness", "Racism", "Tax Reform", "Net
+    Neutrality", "Religious Freedom", "Border Security", "Minimum Wage",
+    "Equal Pay"]
+  end
+
   def set_news_item
     @news_item = NewsItem.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def news_item_params
-    params.require(:news_item).permit(:news, :title, :description, :link, :representative_id)
+    params.require(:news_item).permit(:news, :title, :description, :link, :representative_id, :issue)
   end
 end
