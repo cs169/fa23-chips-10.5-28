@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-
-# require 'news-api'
+require 'news-api'
 
 class MyNewsItemsController < SessionController
   before_action :set_representative
@@ -11,33 +10,6 @@ class MyNewsItemsController < SessionController
 
   def new
     @news_item = NewsItem.new
-  end
-
-  def search
-    # "news_item"=>{"representative_id"=>"3", "issue"=>"Gun Control"}
-    @representative = Representative.find(
-      params[:news_item][:representative_id]
-    )
-    @rep_name = @representative.name
-    @issue = params[:news_item][:issue]
-    # stub it
-    @articles = []
-    # 5.times do |i|
-    #   article = {}
-    #   article['title'] = "test_title#{i}"
-    #   article['link'] = "test_link#{i}"
-    #   article['text'] = "test_description#{i}"
-    #   @articles[i] = article
-    # end
-
-    @articles = NewsItem.query_news_api(@rep_name, @issue)
-    # news = service.get_sources(country: 'us', language: 'en')
-
-    # binding.pry
-  end
-
-  def save
-    binding.pry
   end
 
   def edit; end
@@ -80,11 +52,11 @@ class MyNewsItemsController < SessionController
   end
 
   def set_issues_list
-    @issues_list = ["Free Speech", "Immigration", "Terrorism", "Social Security and
-    Medicare", "Abortion", "Student Loans", "Gun Control", "Unemployment",
-    "Climate Change", "Homelessness", "Racism", "Tax Reform", "Net
-    Neutrality", "Religious Freedom", "Border Security", "Minimum Wage",
-    "Equal Pay"]
+    @issues_list = ['Free Speech', 'Immigration', 'Terrorism', "Social Security and
+    Medicare", 'Abortion', 'Student Loans', 'Gun Control', 'Unemployment',
+                    'Climate Change', 'Homelessness', 'Racism', 'Tax Reform', "Net
+    Neutrality", 'Religious Freedom', 'Border Security', 'Minimum Wage',
+                    'Equal Pay']
   end
 
   def set_news_item
