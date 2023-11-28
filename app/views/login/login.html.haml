@@ -6,7 +6,7 @@
                 .alert.alert-primary.text-center{ role: :alert }
                     Select an authentication provider below to login.
                 = form_tag '/auth/google_oauth2', method: :post do
-                    %button.btn.btn-lg.btn-google.btn-block.text-uppercase.bg-danger.text-white{ type: :submit }
+                    %button.btn.btn-lg.btn-google.btn-block.text-uppercase.bg-danger.text-white{ type: :submit, id:'google_button' }
                         %i.fab.fa-google.mr-2
                         Sign in with Google
                 = form_tag '/auth/github', method: :post do

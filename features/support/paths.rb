@@ -24,6 +24,9 @@ module NavigationHelpers
 		when /the representatives search page$/
 			'/representatives'
 
+    when /representative ([0-9]+)'s profile page/
+			'/representatives/' + $1
+
     else
       begin
         page_name =~ /^the (.*) page$/
