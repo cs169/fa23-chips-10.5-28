@@ -43,38 +43,38 @@ When /I select issue as (.*)/ do |issue|
 end
 
 When /I hit the Search button/ do 
-  stubbed_articles = [
-    { 'title' => 'Newsom Orders Second Shutdown of Restaurants and Indoor Businesses amid COVID-19', 
-      'link' => 'https://people.com/human-interest/california-gov-gavin-newsom-orders-second-shutdown-of-restaurants-and-indoor-businesses-amid-covid-19/', 
-      'text' => 'The new order affects 19 California counties with a surging number of coronavirus cases' },
-    { 'title' => 'Rethinking Americas Immigration Policy', 
-    'link' => 'https://www.migrationpolicy.org/programs/us-immigration-policy-program/rethinking-us-immigration?gclid=CjwKCAiAvJarBhA1EiwAGgZl0M9mZKoNCeITuUhBGGBgwdm_zrosXtq_CuukHUA85NEeSRcnafGyxhoCqSEQAvD_BwE', 
-    'text' => 'Building a reponsive and affective immigration system' },
-  ]
+  # stubbed_articles = [
+  #   { 'title' => 'Newsom Orders Second Shutdown of Restaurants and Indoor Businesses amid COVID-19', 
+  #     'link' => 'https://people.com/human-interest/california-gov-gavin-newsom-orders-second-shutdown-of-restaurants-and-indoor-businesses-amid-covid-19/', 
+  #     'text' => 'The new order affects 19 California counties with a surging number of coronavirus cases' },
+  #   { 'title' => 'Rethinking Americas Immigration Policy', 
+  #   'link' => 'https://www.migrationpolicy.org/programs/us-immigration-policy-program/rethinking-us-immigration?gclid=CjwKCAiAvJarBhA1EiwAGgZl0M9mZKoNCeITuUhBGGBgwdm_zrosXtq_CuukHUA85NEeSRcnafGyxhoCqSEQAvD_BwE', 
+  #   'text' => 'Building a reponsive and affective immigration system' },
+  # ]
   # inst = NewsItem.new
   # NewsItem.any_instance.stubs(:query_news_api).returns(stubbed_articles)
   # allow(NewsItem).to receive(:query_news_api).and_return(stubbed_articles)
   # allow(inst).to receive(:query_news_api).and_return(stubbed_articles)
-  NewsItem.stubs(:query_news_api).returns(stubbed_articles)
+  # NewsItem.stubs(:query_news_api).returns(stubbed_articles)
   click_button('Search')
 end
 
-Then /I should be on the second page for news item search/ do
-  exptec_page_path = representative_search_my_news_item_path(@rep)
+Then /I should now be on the second page for news item search/ do
+  expected_page_path = representative_search_my_news_item_path(@rep)
   expect(page).to have_current_path(expected_page_path)
 end
 
 Then /I should have (.*) profile link/ do |name| 
   @test_rep = Representative.where(name: name).first
   id = @test_rep.id
-  within('.heading') do
+  within('#rep-heading') do
     expect(page).to have_content("Representative: #{name}")
     expect(page).to have_link(name, href: "/representatives/#{id}")
   end
 end
 
 Then /I should see issue listed as (.*)/ do |issue|
-  within('.heading') do
+  within('#issue-heading') do
     expect(page).to have_content("Issue: #{issue}")
   end
 end
@@ -107,6 +107,6 @@ end
 
 Then /I should see (.*) articles list/ do |name|
   @test_rep = Representative.where(name: name).first
-  exptec_page_path = representative_news_items_path(@test_rep)
+  expected_page_path = representative_news_items_path(@test_rep)
   expect(page).to have_current_path(expected_page_path)
 end
