@@ -20,21 +20,6 @@ Given /that I am on news items first page for (.*)/ do |name|
 end
 
 When /I select representative as (.*)/ do |name|
-  # puts page.body
-  # select(name, :from => '.form-control.#news_item_representative_id')
-  # select_box = find('#news_item_representative_id.form-control', visible: :all, wait: 10)
-  # select name, from: select_box
-  # select name, :from => '#news_item_representative_id'
-  
-  # select_script = "document.querySelector('#news_item_representative_id').value = '#{name}';"
-  # page.execute_script(select_script)
-
-  # select_box = find('#news_item_representative_id.form-control', visible: :all, wait: 10)
-  # select name, from: select_box
-
-  # options = find('#news_item_representative_id').all('option').map(&:text)
-  # expect(options).to include(name)
-  
   select(name, :from => 'news_item_representative_id')
 end
 
