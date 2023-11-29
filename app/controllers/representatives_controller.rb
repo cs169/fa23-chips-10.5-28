@@ -7,7 +7,7 @@ class RepresentativesController < ApplicationController
 
   def show
     @representative = Representative.find(params[:id])
-    binding.pry
+    # binding.pry
     @ocdid_state = nil
     state = @representative.ocdid.match(/state:(\w{2})/)
     @ocdid_state = state.captures[0].upcase unless state.nil?

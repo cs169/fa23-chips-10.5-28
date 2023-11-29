@@ -20,18 +20,18 @@ class MyNewsItemsController < SessionController
     @rep_name = @representative.name
     @issue = params[:news_item][:issue]
     params[:id] = @representative.id
-    # stub it
-    @articles = []
-    5.times do |i|
-      article = {}
-      article['title'] = "test_title#{i}"
-      article['link'] = "test_link#{i}"
-      article['text'] = "test_description#{i}"
-      @articles[i] = article
-    end
 
+    # # stub it
     # @articles = []
-    # @articles = NewsItem.query_news_api(@rep_name, @issue)
+    # 5.times do |i|
+    #   article = {}
+    #   article['title'] = "test_title#{i}"
+    #   article['link'] = "test_link#{i}"
+    #   article['text'] = "test_description#{i}"
+    #   @articles[i] = article
+    # end
+    # @articles = []
+    @articles = NewsItem.query_news_api(@rep_name, @issue)
     if @articles.length == 0
       flash[:notice] = "No articles were found."
       redirect_to representative_new_my_news_item_path(@representative)
