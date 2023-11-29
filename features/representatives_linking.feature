@@ -7,4 +7,4 @@ Scenario:
   Given I am on the representatives search page
   When I search California 
   When I follow "Joseph R. Biden"
-  Then I should be on representatives/2
+  Then I should be on "representatives/2"

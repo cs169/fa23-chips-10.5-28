@@ -16,7 +16,6 @@ Given /that I am on news items first page for (.*)/ do |name|
        text: 'Sign in with Google').click
   visit representative_new_my_news_item_path(@rep)
   # expect(page).to have_current_path('representatives/1/representatives/1/my_news_item/new')
-  
 end
 
 When /I select representative as (.*)/ do |name|
@@ -25,7 +24,7 @@ When /I select representative as (.*)/ do |name|
   # select_box = find('#news_item_representative_id.form-control', visible: :all, wait: 10)
   # select name, from: select_box
   # select name, :from => '#news_item_representative_id'
-  
+
   # select_script = "document.querySelector('#news_item_representative_id').value = '#{name}';"
   # page.execute_script(select_script)
 
@@ -34,21 +33,21 @@ When /I select representative as (.*)/ do |name|
 
   # options = find('#news_item_representative_id').all('option').map(&:text)
   # expect(options).to include(name)
-  
-  select(name, :from => 'news_item_representative_id')
+
+  select(name, from: 'news_item_representative_id')
 end
 
 When /I select issue as (.*)/ do |issue|
-  select(issue, :from => 'news_item_issue')
+  select(issue, from: 'news_item_issue')
 end
 
-When /I hit the Search button/ do 
+When /I hit the Search button/ do
   # stubbed_articles = [
-  #   { 'title' => 'Newsom Orders Second Shutdown of Restaurants and Indoor Businesses amid COVID-19', 
-  #     'link' => 'https://people.com/human-interest/california-gov-gavin-newsom-orders-second-shutdown-of-restaurants-and-indoor-businesses-amid-covid-19/', 
+  #   { 'title' => 'Newsom Orders Second Shutdown of Restaurants and Indoor Businesses amid COVID-19',
+  #     'link' => 'https://people.com/human-interest/california-gov-gavin-newsom-orders-second-shutdown-of-restaurants-and-indoor-businesses-amid-covid-19/',
   #     'text' => 'The new order affects 19 California counties with a surging number of coronavirus cases' },
-  #   { 'title' => 'Rethinking Americas Immigration Policy', 
-  #   'link' => 'https://www.migrationpolicy.org/programs/us-immigration-policy-program/rethinking-us-immigration?gclid=CjwKCAiAvJarBhA1EiwAGgZl0M9mZKoNCeITuUhBGGBgwdm_zrosXtq_CuukHUA85NEeSRcnafGyxhoCqSEQAvD_BwE', 
+  #   { 'title' => 'Rethinking Americas Immigration Policy',
+  #   'link' => 'https://www.migrationpolicy.org/programs/us-immigration-policy-program/rethinking-us-immigration?gclid=CjwKCAiAvJarBhA1EiwAGgZl0M9mZKoNCeITuUhBGGBgwdm_zrosXtq_CuukHUA85NEeSRcnafGyxhoCqSEQAvD_BwE',
   #   'text' => 'Building a reponsive and affective immigration system' },
   # ]
   # inst = NewsItem.new
@@ -64,7 +63,7 @@ Then /I should now be on the second page for news item search/ do
   expect(page).to have_current_path(expected_page_path)
 end
 
-Then /I should have (.*) profile link/ do |name| 
+Then /I should have (.*) profile link/ do |name|
   @test_rep = Representative.where(name: name).first
   id = @test_rep.id
   within('#rep-heading') do
@@ -92,7 +91,7 @@ Then /I should see a description with (.*)/ do |description|
 end
 
 Then /I should see a selection for Rating for (.*)/ do |selection|
-  expect(page).to have_content("Rating:")
+  expect(page).to have_content('Rating:')
   options = find('#rating').all('option').map(&:text)
   expect(options).to include(selection)
 end

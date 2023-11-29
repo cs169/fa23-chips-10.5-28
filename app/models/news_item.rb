@@ -44,5 +44,4 @@ class NewsItem < ApplicationRecord
       "from=#{Date.today - 30.days}&" \
       'sort_by=relevancy&'
   end
-  
 end

@@ -32,8 +32,8 @@ class MyNewsItemsController < SessionController
     # end
     # @articles = []
     @articles = NewsItem.query_news_api(@rep_name, @issue)
-    if @articles.length == 0
-      flash[:notice] = "No articles were found."
+    if @articles.length.zero?
+      flash[:notice] = 'No articles were found.'
       redirect_to representative_new_my_news_item_path(@representative)
     end
 
@@ -50,12 +50,12 @@ class MyNewsItemsController < SessionController
         title:          selected_article['title'],
         description:    selected_article['description'],
         link:           selected_article['link'],
-        rating: rating
+        rating:         rating
       }
     )
     news_item.save!
     # binding.pry
-    flash[:notice] = "Article was successfully saved."
+    flash[:notice] = 'Article was successfully saved.'
     redirect_to representative_news_items_path(@representative.id)
   end
 
@@ -99,11 +99,11 @@ class MyNewsItemsController < SessionController
   end
 
   def set_issues_list
-    @issues_list = ["Free Speech", "Immigration", "Terrorism", "Social Security and
-    Medicare", "Abortion", "Student Loans", "Gun Control", "Unemployment",
-    "Climate Change", "Homelessness", "Racism", "Tax Reform", "Net
-    Neutrality", "Religious Freedom", "Border Security", "Minimum Wage",
-    "Equal Pay"]
+    @issues_list = ['Free Speech', 'Immigration', 'Terrorism', "Social Security and
+    Medicare", 'Abortion', 'Student Loans', 'Gun Control', 'Unemployment',
+                    'Climate Change', 'Homelessness', 'Racism', 'Tax Reform', "Net
+    Neutrality", 'Religious Freedom', 'Border Security', 'Minimum Wage',
+                    'Equal Pay']
   end
 
   def set_news_item
