@@ -50,6 +50,7 @@ class MyNewsItemsController < SessionController
         title:          selected_article['title'],
         description:    selected_article['description'],
         link:           selected_article['link'],
+        issue:          selected_article['issue'],
         rating:         rating
       }
     )

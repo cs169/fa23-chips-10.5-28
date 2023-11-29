@@ -34,6 +34,7 @@
               <%= f.hidden_field "articles[#{index}][title]", value: article['title'] %>
               <%= f.hidden_field "articles[#{index}][link]", value: article['link'] %>
               <%= f.hidden_field "articles[#{index}][description]", value: article['text'] %>
+              <%= f.hidden_field "articles[#{index}][issue]", value: @issue %>
             </label>
           </div>
         </div>
