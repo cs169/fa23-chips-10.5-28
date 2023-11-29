@@ -49,7 +49,8 @@ class MyNewsItemsController < SessionController
         representative: @representative,
         title:          selected_article['title'],
         description:    selected_article['description'],
-        link:           selected_article['link']
+        link:           selected_article['link'],
+        rating: rating
       }
     )
     news_item.save!
