@@ -16,7 +16,7 @@ class NewsItem < ApplicationRecord
     uri = NewsItem.generate_query_uri(rep_name, issue) +
           "apiKey=#{Rails.application.credentials[:NEWS_API_KEY]}"
 
-    uri = URI.escape(uri)
+    uri = URI::Parser.new.escape(uri)
     response = Faraday.get(uri)
 
     response_articles = JSON.parse(response.body)['articles']
@@ -41,7 +41,7 @@ class NewsItem < ApplicationRecord
   def self.generate_query_uri(rep_name, issue)
     'https://newsapi.org/v2/everything?' \
       "q=#{rep_name} AND #{issue}&" \
-      "from=#{Date.today - 30.days}&" \
+      "from=#{Time.zone.today - 30.days}&" \
       'sort_by=relevancy&'
   end
 end

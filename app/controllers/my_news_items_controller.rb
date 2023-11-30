@@ -32,11 +32,10 @@ class MyNewsItemsController < SessionController
     # end
     # @articles = []
     @articles = NewsItem.query_news_api(@rep_name, @issue)
-    if @articles.length.zero?
-      flash[:notice] = 'No articles were found.'
-      redirect_to representative_new_my_news_item_path(@representative)
-    end
+    return unless @articles.length.zero?
 
+    flash[:notice] = 'No articles were found.'
+    redirect_to representative_new_my_news_item_path(@representative)
     # binding.pry
   end
 
