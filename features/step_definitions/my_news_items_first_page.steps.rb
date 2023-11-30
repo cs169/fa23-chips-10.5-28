@@ -20,7 +20,6 @@ Given /that I am on news items page for (.*) with id (.*)/ do |name, id|
       link:           'https://people.com/human-interest/california-gov-gavin-newsom-orders-second-shutdown-of-restaurants-and-indoor-businesses-amid-covid-19/'
     }
   )
-  news_item = NewsItem.where(representative: @rep).first
   visit representative_news_items_path(@rep.id)
 end
 
