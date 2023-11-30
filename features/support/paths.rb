@@ -30,6 +30,12 @@ module NavigationHelpers
     when /representative ([0-9]+)'s profile page/
 			'/representatives/' + $1
 
+    when /my_events\/new/
+      '/my_events/new'
+
+    when /events/
+      '/events'
+
     else
       begin
         page_name =~ /^the (.*) page$/
