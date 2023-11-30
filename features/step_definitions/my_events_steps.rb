@@ -45,5 +45,5 @@ end
 And /its description is (.*)/ do |desc|
 end
 
-And /I hit (\w*)/ do |button|
+And /I save the event/ do
 end

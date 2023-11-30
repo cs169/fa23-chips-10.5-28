@@ -18,6 +18,6 @@ Scenario: Updating my event
   And I edit the "Test" event
   When I set the name to "Test2"
   And I set the description to "Test Description 2"
-  And I hit "save"
+  And I save the event
   Then there is an event named "Test2"
   And its description is "Test Description 2"
