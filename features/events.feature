@@ -12,3 +12,10 @@ Scenario: Navigate to detailed event page
   When I follow "View"
   Then I should see "Marching band"
   And I should see "Annual pride parade"
+Scenario: Editing Events
+  Given that there is an event "Marching band"
+  And that I am logged in
+  And that I am on "my_events/1"
+  When I fill in "Military Parade" for "event_name"
+  And I press "Save"
+  Then I should see "Military Parade"
